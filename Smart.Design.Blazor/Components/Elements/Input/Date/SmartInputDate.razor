@@ -1,0 +1,12 @@
+﻿@namespace Smart.Design.Blazor
+
+@inherits InputBase<DateTime?>
+
+<input
+    class="c-input"
+    type="date"
+    @bind-value="Value"
+    disabled="@IsDisabled"
+    @onkeydown="OnKeyDown"
+    @onkeyup="OnKeyUp"
+    @onkeypress="OnKeyPress"/>

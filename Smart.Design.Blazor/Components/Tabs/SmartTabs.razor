@@ -1,0 +1,22 @@
+﻿@namespace Smart.Design.Blazor
+
+<CascadingValue Value="Context">
+    @ChildContent
+</CascadingValue>
+<nav class="c-tabs">
+    <ul>
+        @foreach (var tab in Context.Tabs)
+        {
+            <li role="presentation">
+                <a @onclick="() => OnTabClicked(tab)"
+                   class="c-tabs__item"
+                   role="tab"
+                   aria-selected="@(tab.IsSelected ? "true" : "false")"
+                   id="@tab.UniqueId">
+                    @tab.Title
+                </a>
+            </li>
+        }
+    </ul>
+    @_activeTab
+</nav>

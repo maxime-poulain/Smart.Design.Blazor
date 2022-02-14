@@ -1,0 +1,13 @@
+﻿@namespace Smart.Design.Blazor
+@inherits InputBase<string>
+
+<input
+    disabled="@IsDisabled"
+    class="c-input"
+    type="text"
+    value="@Value"
+    placeholder="@Placeholder"
+    @oninput="OnChangeCallback"
+    @onkeyup="OnKeyUp"
+    @onkeypress="OnKeyPress"
+    @onkeydown="OnKeyDown"/>

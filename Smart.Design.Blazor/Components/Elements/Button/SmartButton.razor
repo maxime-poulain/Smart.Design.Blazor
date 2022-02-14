@@ -1,0 +1,17 @@
+﻿@namespace Smart.Design.Blazor
+
+<button class="c-button @CssClass" type="@(Type.ToString().ToLowerInvariant())" @onclick="OnClick" disabled="@Disabled">
+    <span class="c-button__content">
+        @if (LeadingIcon.HasValue)
+        {
+            <SmartIcon Icon="LeadingIcon"></SmartIcon>
+        }
+
+        <span class="c-button__label">@Label</span>
+
+        @if (TrailingIcon.HasValue)
+        {
+            <SmartIcon Icon="TrailingIcon"></SmartIcon>
+        }
+    </span>
+</button>

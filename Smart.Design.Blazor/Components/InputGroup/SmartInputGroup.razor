@@ -1,0 +1,27 @@
+﻿@namespace Smart.Design.Blazor
+@inherits SmartInputText
+
+<div class="c-input-group">
+    @if (PrependContent is not null)
+    {
+        <div class="c-input-group__prepend">
+            @PrependContent
+        </div>
+    }
+
+    <SmartInputText
+        Placeholder="@Placeholder"
+        IsDisabled="IsDisabled"
+        OnKeyDown="OnKeyDown"
+        OnKeyPress="OnKeyPress"
+        OnKeyUp="OnKeyUp"
+        @bind-Value="@Value">
+    </SmartInputText>
+
+    @if (AppendContent is not null)
+    {
+        <div class="c-input-group__append">
+            @AppendContent
+        </div>
+    }
+</div>

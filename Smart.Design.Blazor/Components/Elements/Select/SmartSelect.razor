@@ -1,0 +1,15 @@
+﻿@namespace Smart.Design.Blazor
+@typeparam TItem
+
+<div class="c-select-holder">
+    <select class="c-select" @onchange="OnSelectChangeCallback">
+        @ChildContent
+        @if (Items is not null)
+        {
+            foreach (var item in Items)
+            {
+                <option value="@GetValue(item, ValueField)">@GetValue(item, DisplayField)</option>
+            }
+        }
+    </select>
+</div>

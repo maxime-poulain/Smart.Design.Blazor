@@ -1,0 +1,12 @@
+﻿@namespace Smart.Design.Blazor
+
+@if (Show)
+{
+    <div class="c-global-banner c-global-banner--default">
+        <SmartIcon Icon="Icon.CircleInformation" />
+        <p class="c-body-1">
+            @Body
+        </p>
+        <SmartButton ButtonStyle="ButtonStyle.Borderless" LeadingIcon="Icon.Close" OnClick="OnCloseClicked"/>
+    </div>
+}

@@ -1,0 +1,16 @@
+﻿@namespace Smart.Design.Blazor
+
+<div class="c-panel">
+    @if (Header is not null)
+    {
+        <div class="c-panel__header">
+            @Header
+        </div>
+    }
+    @if (Body is not null)
+    {
+        <div class="c-panel__body">
+            @Body
+        </div>
+    }
+</div>

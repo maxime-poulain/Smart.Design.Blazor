@@ -1,0 +1,13 @@
+﻿@namespace Smart.Design.Blazor
+
+@typeparam TValue
+
+<div class="c-radio">
+    <label>
+        <input type="radio"
+               checked="@IsChecked"
+               name="@Context.GroupName"
+               @onchange="OnChange"
+               value="@Value" />@Label
+    </label>
+</div>

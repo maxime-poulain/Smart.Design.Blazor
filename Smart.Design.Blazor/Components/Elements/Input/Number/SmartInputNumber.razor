@@ -1,0 +1,13 @@
+﻿@namespace Smart.Design.Blazor
+
+@inherits InputBase<TValue>
+
+@typeparam TValue
+
+<input
+    type="number"
+    disabled="@IsDisabled"
+    @bind-value="@Value"
+    @onkeyup="OnKeyUp"
+    @onkeydown="OnKeyDown"
+    @onkeypress="@OnKeyPress"/>

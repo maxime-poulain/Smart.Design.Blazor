@@ -1,0 +1,15 @@
+﻿@namespace Smart.Design.Blazor
+
+<div class="o-form-group">
+    @if (!string.IsNullOrWhiteSpace(Label))
+    {
+        <label class="o-form-group__label">@Label</label>
+    }
+    <div class="o-form-group__controls">
+        @ChildContent
+        @if (!string.IsNullOrWhiteSpace(HelperText))
+        {
+            <p class="c-form-help-text">@HelperText</p>
+        }
+    </div>
+</div>

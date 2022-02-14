@@ -1,0 +1,19 @@
+﻿@namespace Smart.Design.Blazor
+
+@if (IsLoading)
+{
+    if (LoadingTemplate is not null)
+    {
+        @LoadingTemplate
+    }
+    else
+    {
+        <div class="o-flex @AlignmentCssClass">
+            <div class="c-loader" role="alert" aria-busy="true"></div>
+        </div>
+    }
+}
+else
+{
+    @ContentTemplate
+}

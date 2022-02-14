@@ -1,0 +1,22 @@
+﻿@namespace Smart.Design.Blazor
+
+@typeparam TItem
+
+<table class="c-table @_borderedCssClass @_styledCssClass @_invisibleCssClass">
+
+    <thead>
+        @if (TableHeader is not null)
+        {
+            @TableHeader
+        }
+    </thead>
+    <tbody>
+        @if (Items is not null && RowTemplate is not null)
+        {
+            @foreach (var item in Items)
+            {
+                <tr>@RowTemplate(item)</tr>
+            }
+        }
+    </tbody>
+</table>
