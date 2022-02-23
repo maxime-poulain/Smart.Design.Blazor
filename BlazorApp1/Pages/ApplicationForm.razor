@@ -1,0 +1,63 @@
+﻿@page "/app"
+
+<div class="u-spacer-bottom-l">
+	<SmartPanel>
+		<Header>
+			<h2 class="c-hr">Form grouping</h2>
+		</Header>
+		<Body>
+		<FormGroup Label="Add client">
+			<div class="c-blank-slate c-blank-slate--bg-alt">
+				<p class="text-muted c-body-1">Please add a client for this quote.</p>
+				<SmartButtonToolbar>
+					<SmartButton ButtonStyle="ButtonStyle.Secondary" LeadingIcon="Icon.Add" Label="Add new client"></SmartButton>
+					<SmartButton ButtonStyle="ButtonStyle.Secondary" LeadingIcon="Icon.Add" Label="Add new client"></SmartButton>
+				</SmartButtonToolbar>
+			</div>
+		</FormGroup>
+		</Body>
+	</SmartPanel>
+</div>
+<div class="u-spacer-bottom-l">
+	<SmartPanel>
+		<Header>
+			<h2 class="c-h2">Form grouping</h2>
+		</Header>
+		<Body>
+		<FormGroup Label="Input">
+			<SmartInputText></SmartInputText>
+		</FormGroup>
+
+		<FormGroup Label="Select" HelperText="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed commodo accumsan risus.">
+			<SmartSelect TItem="string">
+				<option>Choose an item</option>
+			</SmartSelect>
+		</FormGroup>
+
+		<FormGroup Label="Textarea" HelperText="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed commodo accumsan risus.">
+			<SmartTextArea Rows="5"></SmartTextArea>
+		</FormGroup>
+		</Body>
+	</SmartPanel>
+</div>
+
+<div class="u-spacer-bottom-l">
+	<SmartPanel>
+		<Header>
+			<h2 class="h2">Form grouping</h2>
+		</Header>
+		<Body>
+		<FormGroup Label="Nr BCE">
+			<SmartInputText Placeholder="__/__/__"></SmartInputText>
+		</FormGroup>
+
+		<FormGroup Label="Sale amount">
+			<SmartInputGroup>
+				<AppendContent>
+					€
+				</AppendContent>
+			</SmartInputGroup>
+		</FormGroup>
+		</Body>
+	</SmartPanel>
+</div>

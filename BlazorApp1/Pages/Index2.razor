@@ -1,0 +1,172 @@
+﻿@page "/index2"
+@using CurrieTechnologies.Razor.SweetAlert2
+@using BlazorApp1.Dtos
+
+@inject HttpClient _httpClient;
+@inject SweetAlertService _swal;
+@inject NavigationManager _navigationManager;
+@inject MemberRegistrationValidator _validator;
+
+
+<h1 class="c-h1 u-spacer-top-l">Member registration</h1>
+
+<EditForm Model="_smartMember" class="o-form-group-layout o-form-group-layout--standard" disable="@IsBusy" OnValidSubmit="RegisterAsync">
+    <FluentValidationValidator Validator="_validator"/>
+    <ValidationSummary/>
+    <fieldset disabled="@IsBusy">
+
+        @*--------------------------------------------------------------------------------*@
+
+        <div class="u-spacer-top-xl"></div>
+
+        <SmartPanel>
+            <Header>
+                <SmartPanelTitle>Personal information</SmartPanelTitle>
+            </Header>
+            <Body>
+            <SmartGrid>
+
+                @*--------------------------------------------------------------------------------*@
+
+                <SmartColumn Width="6">
+                    <FormGroup Label="Firstname">
+                        <SmartInputText Placeholder="Firstname" @bind-Value="_smartMember.Firstname"></SmartInputText>
+                        <SmartValidationMessage For="() => _smartMember.Firstname"></SmartValidationMessage>
+                    </FormGroup>
+                </SmartColumn>
+                <SmartColumn Width="6">
+                    <FormGroup Label="Lastname">
+                        <SmartInputText Placeholder="Lastname" @bind-Value="_smartMember.Lastname"></SmartInputText>
+                        <SmartValidationMessage For="() => _smartMember.Lastname"></SmartValidationMessage>
+                    </FormGroup>
+                </SmartColumn>
+
+                @*--------------------------------------------------------------------------------*@
+
+                <SmartColumn Width="12">
+                    <FormGroup Label="Birth date" HelperText="Member less old than 40 get some super discout">
+                        <SmartInputDate @bind-Value="_smartMember.BirthDate"></SmartInputDate>
+                        <SmartValidationMessage For="() => _smartMember.BirthDate"></SmartValidationMessage>
+                    </FormGroup>
+                </SmartColumn>
+
+                <SmartColumn Width="6">
+                    <FormGroup Label="Phone">
+                        <SmartInputText Placeholder="Phone" @bind-Value="_smartMember.Phone"></SmartInputText>
+                        <SmartValidationMessage For="() => _smartMember.Phone"></SmartValidationMessage>
+                    </FormGroup>
+                </SmartColumn>
+
+                @*--------------------------------------------------------------------------------*@
+
+                <SmartColumn Width="6">
+                    <FormGroup Label="Email">
+                        <SmartInputText Placeholder="Email" @bind-Value="_smartMember.Email"></SmartInputText>
+                        <SmartValidationMessage For="() => _smartMember.Email"></SmartValidationMessage>
+                    </FormGroup>
+                </SmartColumn>
+            </SmartGrid>
+
+
+            </Body>
+        </SmartPanel>
+
+        @*--------------------------------------------------------------------------------*@
+
+        <hr class="c-hr"/>
+
+        @*--------------------------------------------------------------------------------*@
+
+        <SmartPanel>
+            <Header>
+                <h2 class="c-panel__title">Address</h2>
+            </Header>
+            <Body>
+            <SmartGrid>
+                @*--------------------------------------------------------------------------------*@
+                <SmartColumn Width="8">
+                    <FormGroup Label="Street">
+                        <SmartInputText Placeholder="Street" @bind-Value="_smartMember.Street"></SmartInputText>
+                        <SmartValidationMessage For="() => _smartMember.Street"></SmartValidationMessage>
+                    </FormGroup>
+                </SmartColumn>
+
+                <SmartColumn Width="4">
+                    <FormGroup Label="Box">
+                        <SmartInputText Placeholder="Number" @bind-Value="_smartMember.Number"></SmartInputText>
+                        <SmartValidationMessage For="() => _smartMember.Number"></SmartValidationMessage>
+                    </FormGroup>
+                </SmartColumn>
+
+                @*--------------------------------------------------------------------------------*@
+
+                <SmartColumn Width="6">
+                    <FormGroup Label="City">
+                        <SmartInputText Placeholder="City" @bind-Value="_smartMember.City"></SmartInputText>
+                        <SmartValidationMessage For="() => _smartMember.City"></SmartValidationMessage>
+                    </FormGroup>
+                </SmartColumn>
+
+                <SmartColumn Width="6">
+                    <FormGroup Label="Country">
+                        <SmartSelect TItem="Country" DisplayField="@nameof(Country.Name)" ValueField="@nameof(Country.Code)" Items="_countries" @bind-SelectedItem="_smartMember.Country">
+                            <option>Select a country</option>
+                        </SmartSelect>
+                        <SmartValidationMessage For="() => _smartMember.Country"></SmartValidationMessage>
+                    </FormGroup>
+                </SmartColumn>
+            </SmartGrid>
+            </Body>
+        </SmartPanel>
+
+        @*--------------------------------------------------------------------------------*@
+
+        <hr class="c-hr"/>
+
+        @*--------------------------------------------------------------------------------*@
+
+        <SmartPanel>
+            <Header>
+                <h2 class="c-panel__title">Food Preferences</h2>
+            </Header>
+            <Body>
+
+            @*--------------------------------------------------------------------------------*@
+
+            <FormGroup Label="Food preferences">
+                <SmartCheckboxGroup InlineContent="false">
+                    <SmartCheckbox Label="Like cheese ?" @bind-IsChecked="_smartMember.LikeCheese"></SmartCheckbox>
+                    <SmartCheckbox Label="Like burgers ?" @bind-IsChecked="_smartMember.LikeBurgers"></SmartCheckbox>
+                    <SmartCheckbox Label="Like vegetables ?" @bind-IsChecked="_smartMember.LikeVegetables"></SmartCheckbox>
+                </SmartCheckboxGroup>
+            </FormGroup>
+            <SmartColumn>
+                <hr class="c-hr"/>
+            </SmartColumn>
+            @*
+                    <SmartColumn>
+                    <SmartFileUpload Label="Drag or drop your file" HelperText="Please provide us a scan of the front of your ID card"></SmartFileUpload>
+                    </SmartColumn>
+
+                    <div class="u-spacer-l"></div>
+
+                    <SmartColumn>
+                    <SmartFileUpload Label="Drag or drop your file" HelperText="Please provide us a scan of the rear of your ID card"></SmartFileUpload>
+                    </SmartColumn>*@
+            </Body>
+        </SmartPanel>
+
+        <SmartButton IsBLock="true" ButtonStyle="ButtonStyle.Primary" Label="Register" TrailingIcon="Icon.Save" Type="ButtonType.Submit" Disabled="IsBusy"></SmartButton>
+        @if (IsBusy)
+        {
+            <div class="u-spacer-top-l"></div>
+            <SmartLoader IsLoading="IsBusy"></SmartLoader>
+        }
+    </fieldset>
+</EditForm>
+
+<hr class="c-hr"/>
+
+<div>
+    @Feedback
+</div>

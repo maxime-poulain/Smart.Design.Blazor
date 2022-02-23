@@ -5,9 +5,8 @@ namespace Smart.Design.Blazor;
 public partial class SmartTable<TItem>
 {
     private string? _borderedCssClass = "";
-    private string? _styledCssClass = "";
-
     private string? _invisibleCssClass = "";
+    private string? _styledCssClass = "";
 
     [Parameter]
     public IReadOnlyList<TItem>? Items { get; set; }
@@ -25,8 +24,9 @@ public partial class SmartTable<TItem>
         }
     }
 
-    private bool _invisible;
 
+    private bool _invisible;
+    
     [Parameter]
     public bool Invisible
     {

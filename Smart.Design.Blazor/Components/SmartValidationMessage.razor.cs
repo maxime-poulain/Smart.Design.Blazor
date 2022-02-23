@@ -67,6 +67,8 @@ public class SmartValidationMessage<TValue> : ComponentBase, IDisposable
     /// <inheritdoc />
     protected override void BuildRenderTree(RenderTreeBuilder builder)
     {
+        var x = CurrentEditContext.GetValidationMessages();
+
         foreach (var message in CurrentEditContext.GetValidationMessages(_fieldIdentifier))
         {
             builder.OpenElement(0, "div");

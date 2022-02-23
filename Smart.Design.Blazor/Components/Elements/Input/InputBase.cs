@@ -42,10 +42,17 @@ public class InputBase<TValue> : ComponentBase
 
     protected virtual void OnChangeCallback(ChangeEventArgs obj)
     {
-        var newValue = obj.Value is not null ? (TValue) obj.Value : default;
-        if (EqualityComparer<TValue>.Default.Equals(newValue, Value))
-            return;
+        if (obj.Value is TValue newValue)
+        {
+            if  (EqualityComparer<TValue>.Default.Equals(newValue, Value))
+            {
+                return;
+            }
+            Value = newValue;
+        }
+        //var newValue = obj.Value is not null ? (TValue) obj.Value : default;
+        //if (EqualityComparer<TValue>.Default.Equals(newValue, Value))
+        //    return;
 
-        Value = newValue;
     }
 }

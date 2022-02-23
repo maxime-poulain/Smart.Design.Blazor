@@ -37,7 +37,7 @@ public partial class SmartSelect<TItem> : ComponentBase
     [Parameter]
     public RenderFragment? ChildContent { get ; set ; }
 
-    public SmartSelect ()
+    public SmartSelect()
     {
         _itemType ??= typeof(TItem);
     }
@@ -47,14 +47,15 @@ public partial class SmartSelect<TItem> : ComponentBase
         if (Items is null)
             return;
 
+        // ChangeEventArgs' Value property is the actual HTML value of the selected <option> element.
         var selectedValue = obj.Value?.ToString();
 
         // foundItem may be null if for example the user selected the label <option>.
-        var foundItem     = Items.FirstOrDefault(item => GetValue(item, ValueField) == selectedValue);
+        var foundItem     = Items.FirstOrDefault(item => GetPropertyValueByName(item, ValueField) == selectedValue);
         SelectedItem      = foundItem;
     }
 
-    private string GetValue(TItem item, string? name)
+    private string GetPropertyValueByName(TItem item, string? name)
     {
         if (string.IsNullOrWhiteSpace(name))
             return string.Empty;
