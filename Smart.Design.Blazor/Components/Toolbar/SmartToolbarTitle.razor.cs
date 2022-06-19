@@ -2,8 +2,8 @@
 
 namespace Smart.Design.Blazor;
 
-public partial class SmartInputText : InputBase<string>
+public partial class SmartToolbarTitle
 {
     [Parameter]
-    public string? Name { get; set; }
+    public string Title { get; set; }
 }

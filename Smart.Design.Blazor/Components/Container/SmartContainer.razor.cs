@@ -8,7 +8,7 @@ public partial class SmartContainer : ComponentBase
     public RenderFragment? ChildContent { get; set; }
 
     [Parameter]
-    public ContainerSize Size { get; set; } = ContainerSize.Medium;
+    public ContainerSize Size { get; set; } = ContainerSize.Default;
 
     public string SizeCssClass => ContainerSizeCss();
 
@@ -16,10 +16,11 @@ public partial class SmartContainer : ComponentBase
     {
         return Size switch
         {
-            ContainerSize.Small  => "o-container--small",
-            ContainerSize.Medium => "o-container--medium",
-            ContainerSize.Large  => "o-container--large",
-            _                    => throw new NotImplementedException($"No css class defined for size {Size}")
+            ContainerSize.Default => string.Empty,
+            ContainerSize.Small   => "o-container--small",
+            ContainerSize.Medium  => "o-container--medium",
+            ContainerSize.Large   => "o-container--large",
+            _                     => throw new NotImplementedException($"No css class defined for size {Size}")
         };
     }
 }

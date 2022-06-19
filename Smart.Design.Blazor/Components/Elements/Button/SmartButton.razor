@@ -1,6 +1,6 @@
 ﻿@namespace Smart.Design.Blazor
 
-<button class="c-button @CssClass" type="@(Type.ToString().ToLowerInvariant())" @onclick="OnClick" disabled="@Disabled">
+<button class="c-button @CssClass" type="@(Type.ToString().ToLowerInvariant())" @onclick="OnClick" disabled="@Disabled" form="@Form">
     <span class="c-button__content">
         @if (LeadingIcon.HasValue)
         {

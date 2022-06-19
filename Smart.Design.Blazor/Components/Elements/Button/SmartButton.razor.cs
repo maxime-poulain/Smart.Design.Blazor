@@ -5,8 +5,16 @@ namespace Smart.Design.Blazor;
 
 public partial class SmartButton : ComponentBase
 {
+    public string? CssClass => GetCssClass();
+
     [Parameter]
     public ButtonStyle ButtonStyle { get; set; } = ButtonStyle.Primary;
+
+    [Parameter]
+    public bool Block { get; set; }
+
+    [Parameter]
+    public bool Disabled { get; set; }
 
     [Parameter]
     public ButtonType Type { get; set; } = ButtonType.Button;
@@ -21,25 +29,20 @@ public partial class SmartButton : ComponentBase
     public Icon? TrailingIcon { get; set; }
 
     [Parameter]
-    public bool Block { get; set; }
-
-    [Parameter]
-    public bool Disabled { get; set; }
-
-    public string? CssClass => GetCssClass();
-
-    [Parameter]
     public EventCallback<MouseEventArgs> OnClick { get; set; }
+
+    [Parameter]
+    public string? Form { get; set; }
 
     private string GetCssClass()
     {
         var styleCss = ButtonStyle switch
         {
-            ButtonStyle.Primary         => " c-button--primary",
-            ButtonStyle.Secondary       => " c-button--secondary",
-            ButtonStyle.Danger          => " c-button--danger",
-            ButtonStyle.DangerSecondary => " c-button--danger-secondary",
-            ButtonStyle.Borderless      => " c-button--borderless",
+            ButtonStyle.Primary         => "c-button--primary",
+            ButtonStyle.Secondary       => "c-button--secondary",
+            ButtonStyle.Danger          => "c-button--danger",
+            ButtonStyle.DangerSecondary => "c-button--danger-secondary",
+            ButtonStyle.Borderless      => "c-button--borderless",
             _                           => throw new NotImplementedException($"Missing css class for style {ButtonStyle}")
         };
 

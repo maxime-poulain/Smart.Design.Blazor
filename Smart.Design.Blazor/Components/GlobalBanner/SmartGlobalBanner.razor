@@ -2,10 +2,10 @@
 
 @if (Show)
 {
-    <div class="c-global-banner c-global-banner--default">
-        <SmartIcon Icon="Icon.CircleInformation" />
+    <div class="c-global-banner c-global-banner--@BannerStyle.ToString().ToLowerInvariant()">
+        <SmartIcon Icon="IconToDisplay" />
         <p class="c-body-1">
-            @Body
+            @ChildContent
         </p>
         <SmartButton ButtonStyle="ButtonStyle.Borderless" LeadingIcon="Icon.Close" OnClick="OnCloseClicked"/>
     </div>

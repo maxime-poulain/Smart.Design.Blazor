@@ -6,6 +6,7 @@ namespace Smart.Design.Blazor;
 public class InputBase<TValue> : ComponentBase
 {
     protected string? UniqueId = Guid.NewGuid().ToString();
+
     private TValue? _value;
 
     [Parameter]
@@ -44,15 +45,7 @@ public class InputBase<TValue> : ComponentBase
     {
         if (obj.Value is TValue newValue)
         {
-            if  (EqualityComparer<TValue>.Default.Equals(newValue, Value))
-            {
-                return;
-            }
             Value = newValue;
         }
-        //var newValue = obj.Value is not null ? (TValue) obj.Value : default;
-        //if (EqualityComparer<TValue>.Default.Equals(newValue, Value))
-        //    return;
-
     }
 }

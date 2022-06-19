@@ -1,9 +1,10 @@
 ﻿namespace Smart.Design.Blazor;
 
-public enum ContainerSize
+public enum Height
 {
     Default,
     Small,
     Medium,
-    Large
+    Large,
+    Auto
 }

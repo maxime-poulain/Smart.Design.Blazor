@@ -20,9 +20,17 @@ public partial class SmartCheckbox : ComponentBase
 
             _isChecked = value;
             _ = IsCheckedChanged.InvokeAsync(value);
+            OnChange.InvokeAsync(new ChangeEventArgs()
+            {
+                Value = value
+            });
         }
     }
 
     [Parameter]
     public EventCallback<bool> IsCheckedChanged { get; set; }
+
+
+    [Parameter]
+    public EventCallback<ChangeEventArgs> OnChange { get; set; }
 }

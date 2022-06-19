@@ -24,7 +24,7 @@ public partial class SmartIcon : ComponentBase
 
         var iconName = $"{Icon.ToString().ToKebabCase()}.svg";
         var assembly = Assembly.GetExecutingAssembly();
-        var resourceName = assembly.GetManifestResourceNames().FirstOrDefault(resourceNames => resourceNames.EndsWith(iconName));
+        var resourceName = assembly.GetManifestResourceNames().FirstOrDefault(resourceNames => resourceNames.EndsWith(iconName, StringComparison.OrdinalIgnoreCase));
         if (resourceName is null)
             return;
 

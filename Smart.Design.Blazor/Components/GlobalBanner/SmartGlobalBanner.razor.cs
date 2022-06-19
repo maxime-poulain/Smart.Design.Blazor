@@ -2,16 +2,21 @@
 
 namespace Smart.Design.Blazor;
 
-public partial class SmartGlobalBanner
+public partial class SmartGlobalBanner : ComponentBase
 {
     [Parameter]
-    public RenderFragment? Body { get ; set ; }
+    public GlobalBannerStyle BannerStyle { get; set; }
+
+    public Icon IconToDisplay => BannerStyle == GlobalBannerStyle.Warning ? Icon.Warning : Icon.CircleInformation;
+
+    [Parameter]
+    public RenderFragment? ChildContent { get ; set ; }
 
     public bool Show { get ; set ; } = true;
 
     public void OnCloseClicked()
     {
-        Body = null;
+        ChildContent = null;
         Show = false;
     }
 }

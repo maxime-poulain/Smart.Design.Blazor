@@ -8,7 +8,6 @@
     <Company>Maxime Poulain</Company>
     <Description>A razor components implementation of Smart Design </Description>
     <PackageTags>Razor components;blazor;Blazor</PackageTags>
-    <Version>0.0.2-alpha</Version>
   </PropertyGroup>
 
   <ItemGroup>

@@ -35,7 +35,7 @@ public class SmartFileUpload : InputFile
 
         builder.CloseElement();
 
-        if (!String.IsNullOrWhiteSpace(Label))
+        if (!string.IsNullOrWhiteSpace(Label))
         {
             builder.OpenElement(sequence++, "p");
             builder.AddContent(sequence++, HelperText);

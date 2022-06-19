@@ -1,0 +1,23 @@
+﻿@using System.Data
+@namespace Smart.Design.Blazor
+<div class="c-toolbar">
+    @if (Left is not null)
+    {
+        <div class="c-toolbar__left">
+            @Left
+        </div>
+    }
+
+    @if (Center is not null)
+    {
+        <div class="c-toolbar__center">
+            @Center
+        </div>
+    }
+    @if (Right is not null)
+    {
+        <div class="c-toolbar__right">
+            @Right
+        </div>
+    }
+</div>
