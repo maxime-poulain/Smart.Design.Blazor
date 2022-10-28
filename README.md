@@ -6,3 +6,4 @@ This is not a serious project, it is more about playing around with Blazor.
 
 
 ------------------------------------
+Hello
